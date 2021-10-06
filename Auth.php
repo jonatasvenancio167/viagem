@@ -1,7 +1,7 @@
 <?php
-	require_once 'DAO.php'
 
 	class Auth {
+		require_once ('connection.php');
 
 		// connection with database
 		private $conn;
@@ -59,9 +59,28 @@
 			$stmt =	$connection->prepare("SELECT * FROM auth");
 
 			if($stmt){
-				return $stmt->fetchAll();				
+				return $stmt->fetchAll(\PDO::FETCH_ASSOC);				
 			}
 			return [];
+		}
+
+		public function update() :array{
+			$stmt = $connection->prepare("UPDATE person SET name =  $user WHERE id = $id" );
+
+			if($stmt){
+				return $stmt->read();				
+			}
+			return [];	
+		}
+
+		public function delete() :array{
+			$userDelete = $this->read();
+			$stmt = $connection->prepare("DELETE FROM person WHERE id = $id" );
+
+			if($stmt){
+				return $userDelete;				
+			}
+			return [];	
 		}
 
  		public function getAuth(){
