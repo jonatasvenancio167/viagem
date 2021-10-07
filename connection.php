@@ -11,12 +11,12 @@
 		public function getConnection(){
 			$this->conn = null;
 			try{
-				$this->conn = new PDO("pgsql:host=" . $this->host ."; database_name=" $this->database_name . "; username=" $this->username ."; password= " $this->password);
+				$this->conn = new PDO("pgsql:host=this->host;database_name=this->database_name;username=this->username;password=this->password;");
 			
-				$this->conn->exec("set names uft-8")
+				$this->conn->exec("set names uft-8");
 			}
 			catch(PDOException $exception){
-				echo "Unable to connect to database: " .exception->getMessage()
+				echo "Unable to connect to database: " .exception->getMessage();
 			}
 
 			return $this->conn;

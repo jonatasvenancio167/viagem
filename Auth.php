@@ -1,7 +1,8 @@
 <?php
 
+	include_once ('connection.php');
+
 	class Auth {
-		require_once ('connection.php');
 
 		// connection with database
 		private $conn;
@@ -11,8 +12,6 @@
 		public $id;
 		public $user;
 		public $password;
-
-		$connection = new Database()
 
 		public function _construct($db){
 			$this->conn = $db;
@@ -29,7 +28,7 @@
 		}
 
 		public function setLogin(string $user) :string {
-			$this->user = $user
+			$this->user = $user;
 		}
 
 		public function getLogin() :string {
@@ -37,7 +36,7 @@
 		}
 
 		public function setPassword(string $password) :string {
-			$this->password = $password
+			$this->password = $password;
 		}
 
 		public function getPassword() :string {
@@ -45,26 +44,32 @@
 		}
 
 		public function create(){
+			$connection = new Database();
+
 			$stmt =	$connection->prepare("INSERT INTO auth VALUES ($user, $password)");
 			$stmt->execute();
 
 			if($tmt){
 				$this->setId($connection->lastInsertId(resource));
-				return $this->read()
+				return $this->read();
 			}
 			return[];
 		}
 
 		public function read() :array{
+			$connection = new Database();
+
 			$stmt =	$connection->prepare("SELECT * FROM auth");
 
 			if($stmt){
-				return $stmt->fetchAll(\PDO::FETCH_ASSOC);				
+				return $stmt->fetchAll();				
 			}
 			return [];
 		}
 
 		public function update() :array{
+			$connection = new Database();
+
 			$stmt = $connection->prepare("UPDATE person SET name =  $user WHERE id = $id" );
 
 			if($stmt){
@@ -74,6 +79,8 @@
 		}
 
 		public function delete() :array{
+			$connection = new Database();
+
 			$userDelete = $this->read();
 			$stmt = $connection->prepare("DELETE FROM person WHERE id = $id" );
 
