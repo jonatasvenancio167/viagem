@@ -1,0 +1,72 @@
+docker run -it --name mysql -e MYSQL_ROOT_PASSWORD=mysql -p 3306:3306 -d mysql
+---
+create database trabalho;
+
+CREATE TABLE trabalho.auth (
+	`user` varchar(100) NOT NULL,
+	password varchar(100) NOT NULL
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_0900_ai_ci;
+
+
+INSERT INTO trabalho.auth
+(`user`, password)
+VALUES('a', 'a');
+
+CREATE TABLE trabalho.cidade_destino (
+	id INT auto_increment NOT NULL,
+	nome varchar(100) NOT NULL,
+	CONSTRAINT cidade_destino_PK PRIMARY KEY (id)
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO trabalho.cidade_destino
+(nome)
+VALUES('Fortaleza');
+
+INSERT INTO trabalho.cidade_destino
+(nome)
+VALUES('Bahia');
+
+INSERT INTO trabalho.cidade_destino
+(nome)
+VALUES('São Paulo');
+
+CREATE TABLE trabalho.empresa_onibus (
+	id INT auto_increment NOT NULL,
+	nome varchar(100) NOT NULL,
+	CONSTRAINT empresa_onibus_PK PRIMARY KEY (id)
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO trabalho.empresa_onibus
+(nome)
+VALUES('FretCar');
+
+INSERT INTO trabalho.empresa_onibus
+(nome)
+VALUES('Guanabara');
+
+CREATE TABLE trabalho.viagem (
+	id INT auto_increment NOT NULL,
+	nome varchar(100) NOT NULL,
+	sobrenome varchar(255) NOT NULL,
+	email varchar(255) NOT NULL,
+	telefone varchar(100) NOT NULL,
+	id_empresa_onibus INT NOT NULL,
+	data_hora DATETIME NOT NULL,
+	id_cidade_destino INT NOT NULL,
+	CONSTRAINT viagem_PK PRIMARY KEY (id),
+	CONSTRAINT viagem_FK FOREIGN KEY (id_empresa_onibus) REFERENCES trabalho.empresa_onibus(id),
+	CONSTRAINT viagem_FK_1 FOREIGN KEY (id_cidade_destino) REFERENCES trabalho.cidade_destino(id)
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_0900_ai_ci;
+
