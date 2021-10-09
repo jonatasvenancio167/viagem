@@ -1,7 +1,7 @@
 <?php
 
-require_once 'EmpresaOnibus';
-require_once 'CidadeDestino';
+require_once 'EmpresaOnibus.php';
+require_once 'CidadeDestino.php';
 
 class Viagem{
     private $id;
@@ -14,8 +14,6 @@ class Viagem{
     private $cidadeDestino;
 
     public function __construct(){
-        $this->empresaOnibus = new EmpresaOnibus();
-        $this->cidadeDestino = new CidadeDestino();
     }
 
     /**
@@ -131,7 +129,7 @@ class Viagem{
      *
      * @return  self
      */ 
-    public function setEmpresaOnibus($empresaOnibus)
+    public function setEmpresaOnibus(EmpresaOnibus $empresaOnibus)
     {
         $this->empresaOnibus = $empresaOnibus;
 
@@ -153,7 +151,7 @@ class Viagem{
      */ 
     public function setDataHora(DateTime $dataHora)
     {
-        $this->dataHora = new DateTime($dataHora);
+        $this->dataHora = $dataHora;
 
         return $this;
     }
@@ -171,7 +169,7 @@ class Viagem{
      *
      * @return  self
      */ 
-    public function setCidadeDestino($cidadeDestino)
+    public function setCidadeDestino(CidadeDestino $cidadeDestino)
     {
         $this->cidadeDestino = $cidadeDestino;
 
