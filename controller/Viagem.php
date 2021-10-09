@@ -10,18 +10,7 @@
 
     try{
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            // $headers = apache_request_headers();
-            // if(!isset($headers['auth'])){
-            //     http_response_code(401);
-
-            //     $response['message'] = 'Requisição invalida precisa do token';
-            // }
-
-            //validar o token
-            // Viagem.php?data=2021-10-09
-
-            if(isset($_GET['data'])){
-            }
+            return ViagemService::listarViagem((isset($_GET['data']) ? $_GET['data'] : null));
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {

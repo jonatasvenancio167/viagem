@@ -13,7 +13,29 @@ class Viagem{
     private $dataHora;
     private $cidadeDestino;
 
-    public function __construct(){
+    public function arrayToObject($data){
+        $this->id = $data['id'];
+        $this->nome = $data['nome'];
+        $this->sobrenome = $data['sobrenome'];
+        $this->email = $data['email'];
+        $this->telefone = $data['telefone'];
+
+        $empresaOnibus = new EmpresaOnibus();
+        $empresaOnibus
+            ->setId($data['id_empresa_onibus'])
+            ->setNome($data['nome_empresa_onibus'])    
+        ;
+        $this->empresaOnibus = $empresaOnibus;
+
+        $this->dataHora = new DateTime($data['data_hora']);
+
+        $cidadeDestino = new CidadeDestino();
+        $cidadeDestino
+            ->setId($data['id_cidade_destino'])
+            ->setNome($data['nome_cidade_destino'])
+        ;
+
+        $this->cidadeDestino = $cidadeDestino;
     }
 
     /**
