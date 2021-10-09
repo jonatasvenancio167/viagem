@@ -50,9 +50,9 @@
             //valido se a empresa existe
             $empresaOnibusService = new EmpresaOnibusService();
             if(!$empresaOnibusService->empresaExiste($data['empresa_onibus'])){
-                http_response_code(401);
+                http_response_code(404);
                 
-                $response['message'] = 'Empresa de onibus invalida';
+                $response['message'] = 'Empresa de onibus não encontrada';
 
                 die(json_encode($response));
             }
@@ -60,9 +60,9 @@
             //valido se a cidade existe
             $cidadeDestinoService = new CidadeDestinoService();
             if(!$cidadeDestinoService->cidadeExiste($data['cidade_destino'])){
-                http_response_code(401);
+                http_response_code(404);
                 
-                $response['message'] = 'Cidade invalida';
+                $response['message'] = 'Cidade de destino não encontrada';
 
                 die(json_encode($response));
             }
