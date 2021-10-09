@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style/estilo_agendamento.css" media="screen" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
+  <script type="text/javascript" src="js/requisicao.js"></script>
+  <title>Agendamento de passagem</title>
+</head>
+
+<body>
+  <div class="testbox">
+    <form>
+      <div class="banner">
+        <h1 class="h1_title">Agendamento de Passagem</h1>
+      </div>
+      <div class="item">
+        <p>Nome</p>
+        <div class="name-item">
+          <input type="text" name="name" id="nome" placeholder="Nome" />
+          <input type="text" name="name" id='sobrenome' placeholder="Sobrenome" />
+        </div>
+      </div>
+      <div class="item">
+        <p>Email</p>
+        <input type="text" id="email" name="name" />
+      </div>
+      <div class="item">
+        <p>Telefone</p>
+        <input type="text" id="telefone" name="name" onkeypress="somente_numeros()" />
+      </div>
+      <div class="question">
+        <p>Empresa de viagem de ônibus</p>
+        <div class="question-answer">
+          <div>
+            <input type="radio" value="none" id="radio_1" name="empresa" />
+            <label for="radio_1" class="radio"><span>FretCar</span></label>
+          </div>
+          <div>
+            <input type="radio" value="none" id="radio_2" name="empresa" />
+            <label for="radio_2" class="radio"><span>Guanabara</span></label>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <p>Data da viagem</p>
+        <input type="date" id="data" name="bdate" />
+        <i class="fas fa-calendar-alt"></i>
+      </div>
+      <div class="item">
+        <p>Horário da viagem</p>
+        <input type="time" id="hora" name="name" />
+        <i class="fas fa-clock"></i>
+      </div>
+
+      <div class="item">
+        <p>Cidade de destino</p>
+        <select id="cidade">
+          <option value=""></option>
+          <option value="1">Rio de Janeiro</option>
+          <option value="2">Fortaleza</option>
+          <option value="3">Salvador</option>
+          <option value="4">São Paulo</option>
+          <option value="5">Minas Gerais</option>
+          <option value="6">Recife</option>
+        </select>
+        <div class="btn-block">
+          <button  href='index.html' onclick="request()">Enviar</button>
+        </div>
+</body>
+
+</html>
