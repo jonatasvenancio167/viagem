@@ -36,6 +36,22 @@ INSERT INTO trabalho.cidade_destino
 (nome)
 VALUES('São Paulo');
 
+INSERT INTO trabalho.cidade_destino
+(nome)
+VALUES('São Paulo');
+
+INSERT INTO trabalho.cidade_destino
+(nome)
+VALUES('Salvador');
+
+INSERT INTO trabalho.cidade_destino
+(nome)
+VALUES('Minas Gerais');
+
+INSERT INTO trabalho.cidade_destino
+(nome)
+VALUES('Recife');
+
 CREATE TABLE trabalho.empresa_onibus (
 	id INT auto_increment NOT NULL,
 	nome varchar(100) NOT NULL,

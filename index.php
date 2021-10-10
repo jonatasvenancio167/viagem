@@ -19,6 +19,7 @@
     }
 
     if($fn == "read"){
+        echo 'aqui';
         $data["person"] = $person->read();
     }
 

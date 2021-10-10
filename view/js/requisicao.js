@@ -7,12 +7,12 @@ function request(){
 	let guanabara = document.getElementById('radio_2').value
 	let dataViagem = document.getElementById('data').value
 	let hora = document.getElementById('hora').value
-	let empresa_onibus
-	let select = document.getElementById('cidade')
-	let valor = select.options[select.selectedIndex]
+	let empresa_onibus = document.querySelector('input[name="empresa"]:checked').value
+	let cidade = document.getElementById('cidade').value
 
-	if(nome && sobrenome && email && telefone && dataViagem && hora){
-		request_cadastro(nome, sobrenome, email, telefone, dataViagem, hora)
+
+	if(nome && sobrenome && email && telefone && dataViagem && hora && dataViagem && cidade){
+		request_cadastro(nome, sobrenome, email, telefone, empresa_onibus, hora, dataViagem, cidade)
 	}
 	else{
 		alert('algum campo está vázio!')
@@ -43,32 +43,22 @@ function format(str){
 	return null
 }
 
-function request_cadastro(nome, sobrenome, email, telefone, empresa_onibus, hora, data){
+function request_cadastro(nome, sobrenome, email, telefone, empresa_onibus, hora, data, cidade){
 	$.ajax({
 		method: "POST",
-		url: `localhost:8000/controller/Viagem.php`,
-		data: ({ nome:  nome, sobrenome: sobrenome, email: email, telefone: telefone, empresa_onibus: empresa_onibus, hora: `${hora}:00`, data: data }),
+		url: `http://localhost:8080/controller/Viagem.php`,
+		data: JSON.stringify({ nome:  nome, sobrenome: sobrenome, email: email, telefone: telefone, 
+			empresa_onibus: empresa_onibus, hora: `${hora}:00`, data: data, cidade_destino: cidade }),
+		crossDomain: true,
+		contentType: "application/json; charset=utf-8",
 		success: function(data){
-			alert(data)
+			alert('O cadastro foi realizado com sucesso')
 		},
 		error: function(data){
-			alert(data)
+			alert('Ocorreu um erro durante o cadastro, por gentileza, cadastre-se novamente!')
 		}
 	})
 }
 
-// function request_cidade(){
-// 	$.ajax({
-// 		method: "POST",
-// 		url: `localhost:8000/controller/Cidades.php`,
-// 		data: ({id: id, cidade: cidade}),
-// 		success: function(data){
-// 			alert(data)
-// 		},
-// 		error: function(data){
-// 			alert(data)
-// 		}
-// 	})
-// }
 
 

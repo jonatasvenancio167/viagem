@@ -26,21 +26,21 @@
       </div>
       <div class="item">
         <p>Email</p>
-        <input type="text" id="email" name="name" />
+        <input type="email" id="email" name="name" placeholder="email@teste.com.br" />
       </div>
       <div class="item">
         <p>Telefone</p>
-        <input type="text" id="telefone" name="name" onkeypress="somente_numeros()" />
+        <input type="text" id="telefone" name="name" onkeypress="somente_numeros()" placeholder="(00) 00000-0000" />
       </div>
       <div class="question">
         <p>Empresa de viagem de ônibus</p>
         <div class="question-answer">
           <div>
-            <input type="radio" value="none" id="radio_1" name="empresa" />
+            <input type="radio" value="1" id="radio_1" name="empresa" />
             <label for="radio_1" class="radio"><span>FretCar</span></label>
           </div>
           <div>
-            <input type="radio" value="none" id="radio_2" name="empresa" />
+            <input type="radio" value="2" id="radio_2" name="empresa" />
             <label for="radio_2" class="radio"><span>Guanabara</span></label>
           </div>
         </div>
@@ -60,10 +60,10 @@
         <p>Cidade de destino</p>
         <select id="cidade">
           <option value=""></option>
-          <option value="1">Rio de Janeiro</option>
-          <option value="2">Fortaleza</option>
-          <option value="3">Salvador</option>
-          <option value="4">São Paulo</option>
+          <option value="1">Fortaleza</option>
+          <option value="2">Bahia</option>
+          <option value="3">São Paulo</option>
+          <option value="4">Salvador</option>
           <option value="5">Minas Gerais</option>
           <option value="6">Recife</option>
         </select>

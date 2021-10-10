@@ -1,6 +1,6 @@
 <?php
 	class Connection {
-		private $host = "localhost";
+		private $host = "127.0.0.1";
 		private $port = '3306';
 		private $database_name = "trabalho";
 		private $username = "root";
@@ -12,7 +12,7 @@
 			try{
 				$this->conn = new mysqli($this->host, $this->username, $this->password, $this->database_name);
 			}catch(Throwable $e){
-				echo "Error: " . $e->getMessage;
+				echo "Error: " . $e->getMessage();
 				throw new $e;
 			}
 
