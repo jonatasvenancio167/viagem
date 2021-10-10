@@ -12,9 +12,9 @@ Execute esse comando logo abaixo para executar o mysql no docker.<br>
 
 O arquivo banco.txt conterá todos os comandos necessários para criar o banco e suas tabelas.<br>
 
-Para rodar a aplicação com o apache, execute:<br>
+<strong>Para rodar a aplicação com o apache, execute:</strong><br>
 
-php -S localhost:8080<br>
+- php -S localhost:8080<br>
 
 Obs: Esse comando é válido caso o apache e o php estejam instalados!<br>
 Obs²: Caso o Sistema Operacional seja o linux, será necessário ter instalado mysqli<br>
